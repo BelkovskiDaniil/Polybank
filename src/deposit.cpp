@@ -1,7 +1,3 @@
-//
-// Created by Arsentiy on 29.03.2023.
-//
-
 #include "deposit.h"
 
 big_int deposit::get_cash_size() const {

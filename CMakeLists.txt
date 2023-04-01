@@ -9,3 +9,4 @@ target_include_directories(miptbank PUBLIC include)
 add_subdirectory(src)
 
 target_link_libraries(miptbank lib)
+`

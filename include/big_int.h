@@ -86,4 +86,4 @@ private:
   friend void remove_start_zeroes(big_int &num);
 };
 
-#endif //MIPTBANK_BIG_INT_H
+#endif

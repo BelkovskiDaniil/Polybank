@@ -1,7 +1,3 @@
-//
-// Created by Arsentiy on 29.03.2023.
-//
-
 #include "credit.h"
 
 big_int credit::get_accessible_cash_size() const {

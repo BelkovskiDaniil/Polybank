@@ -42,4 +42,4 @@ private:
   bool is_doubtful_;
 };
 
-#endif //MIPT_BANK__PERSON_H_
+#endif

@@ -5,7 +5,7 @@ project(lib)
 set(SOURCE_LIB credit.cpp debit.cpp
         deposit.cpp ibill.cpp
         imoney_operation.cpp person.cpp
-        person_builder.cpp refil.cpp
+        person_builder.cpp refill.cpp
         transfer.cpp withdrawal.cpp big_int.cpp bill_factory.cpp)
 
 add_library(lib SHARED ${SOURCE_LIB})

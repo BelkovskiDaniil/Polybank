@@ -1,16 +1,24 @@
-//
-// Created by belka on 30.03.2023.
-//
-
 #ifndef MIPTBANK_BILL_FACTORY_H
 #define MIPTBANK_BILL_FACTORY_H
 
 #pragma once
-#include "bill_factory.h"
+#include "big_int"
 
-/*class person_director {
-public:
-    person *create_person(person_builder &pb);
-};*/
+class bill_factory {
+ private:
 
-#endif //MIPTBANK_BILL_FACTORY_H
+  int bill_kind_;
+  big_int unique_id_;
+  big_int person_id_;
+
+ public:
+
+  int get_bill_kind() const;
+
+  big_int get_unique_id() const;
+
+  big_int get_person_id() const;
+
+};
+
+#endif

@@ -1,7 +1,3 @@
-//
-// Created by Arsentiy on 29.03.2023.
-//
-
 #include "debit.h"
 
 big_int debit::get_cash_size() const {

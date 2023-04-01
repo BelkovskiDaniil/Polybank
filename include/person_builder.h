@@ -44,4 +44,4 @@ private:
   std::string passport_id_;
 };
 
-#endif //MIPT_BANK__PERSON_BUILDER_H_
+#endif

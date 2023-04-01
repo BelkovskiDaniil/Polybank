@@ -1,7 +1,3 @@
-//
-// Created by Arsentiy on 29.03.2023.
-//
-
 #ifndef MIPT_BANK__DEPOSIT_H_
 #define MIPT_BANK__DEPOSIT_H_
 
@@ -42,4 +38,4 @@ private:
     int bill_kind_;
 };
 
-#endif //MIPT_BANK__DEPOSIT_H_
+#endif
