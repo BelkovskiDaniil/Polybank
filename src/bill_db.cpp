@@ -89,6 +89,13 @@ ibill* bill_db::bill_delete_and_find(const big_int& bill_id) {
 
     rc = sqlite3_prepare_v2(bill_db_, delete_query.c_str(), -1, &stmt, nullptr);
 
+      if (rc != SQLITE_OK) {
+          sqlite3_close(bill_db_);
+          throw std::string("Fuck u asshole ");
+      }
+
+      rc = sqlite3_bind_text(stmt, 1, bill_id.toString().c_str(), -1, SQLITE_TRANSIENT);
+
 
     sqlite3_finalize(stmt);
     bill_factory factory;

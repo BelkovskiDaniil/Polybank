@@ -20,8 +20,8 @@ int main() {
     credit *cre;
     try {
         bill_db pdb(err, db);
-        credit1 = dynamic_cast<credit *>(build_bill(4, "credit"));  // тут ввод из fronted-а будет
-        pdb.create_bill_query(credit1);
+        /*credit1 = dynamic_cast<credit *>(build_bill(4, "credit"));  // тут ввод из fronted-а будет
+        pdb.create_bill_query(credit1);*/
         cre = dynamic_cast<credit *>(pdb.bill_delete_and_find(0));
     } catch (const std::string &s) {
         std::cout << s << std::endl;
