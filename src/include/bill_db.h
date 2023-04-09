@@ -19,6 +19,8 @@ class bill_db {
 
   ibill* bill_find(const big_int& bill_id);
 
+  ibill* bill_delete_and_find(const big_int& bill_id);
+
   ~bill_db();
 };
 
