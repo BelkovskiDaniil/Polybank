@@ -40,4 +40,5 @@ void debit::update() {
 }
 
 void debit::assign_id() {
-  bill_id_ = bill_id++;
+    bill_id_ = bill_id++;
+}

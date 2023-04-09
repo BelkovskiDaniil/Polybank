@@ -56,4 +56,5 @@ void credit::update() {
 }
 
 void credit::assign_id() {
-  bill_id_ = bill_id++;
+    bill_id_ = bill_id++;
+}
