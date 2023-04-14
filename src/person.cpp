@@ -13,6 +13,14 @@ person::person() {
   }
 }
 
+std::string person::get_login() const {
+  return login_;
+}
+
+std::string person::get_password() const {
+  return password_;
+}
+
 std::string person::get_first_name() const {
   return first_name_;
 }
@@ -39,6 +47,14 @@ bool person::is_doubtful() const {
 
 big_int person::get_id() const {
   return id_;
+}
+
+void person::set_login(const std::string &login) {
+  login_ = login;
+}
+
+void person::set_password(const std::string &password) {
+  password_ = password;
 }
 
 void person::set_first_name(const std::string &first_name) {

@@ -10,6 +10,16 @@ person_builder *person_builder::set_second_name(const std::string &second_name) 
   return this;
 }
 
+person_builder *person_builder::set_login(const std::string &login) {
+  login_ = login;
+  return this;
+}
+
+person_builder *person_builder::set_password(const std::string &password) {
+  password_ = password;
+  return this;
+}
+
 person_builder *person_builder::set_address(const std::string &address) {
   address_ = address;
   return this;
@@ -26,6 +36,14 @@ bool person_builder::check_args() const {
 
 void person_builder::create_person() {
   pers = new class person;
+}
+
+void person_builder::set_person_login() {
+  pers->set_login(login_);
+}
+
+void person_builder::set_person_password() {
+  pers->set_password(password_);
 }
 
 void person_builder::set_person_first_name() {

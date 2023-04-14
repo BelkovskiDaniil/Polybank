@@ -8,6 +8,8 @@ person *person_director::create_person(person_builder &pb) {
   pb.set_person_first_name();
   pb.set_person_second_name();
   pb.set_person_address();
+  pb.set_person_login();
+  pb.set_person_password();
   pb.set_person_passport_id();
   pb.get_person()->assign_id();
   pb.get_person()->update();

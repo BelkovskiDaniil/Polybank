@@ -17,10 +17,17 @@ namespace persondb_build {
 person_db::person_db(sqlite3 *db, char *err) : db_(db), err_(err) {
   sqlite3_open("myDb.db", &db_);
   auto check_db = sqlite3_exec(db_,
-                               "CREATE TABLE IF NOT EXISTS persons(first_name varchar(50), second_name varchar(50), "
-                               "address varchar(50), passport_id varchar(50), "
-                               "money_limit INT, is_doubtful INT, "
-                               "id varchar(10));", NULL, NULL, &err_);
+                               "CREATE TABLE IF NOT EXISTS "
+                               "persons(first_name varchar(50), "
+                               "second_name varchar(50), "
+                               "address varchar(50), "
+                               "passport_id varchar(50), "
+                               "money_limit INT, "
+                               "is_doubtful INT, "
+                               "id varchar(10), "
+                               "login varchar(30), "
+                               "password varchar(30));",
+                              NULL, NULL, &err_);
   if (check_db != SQLITE_OK) {
     throw std::string("Fuck u asshole " + std::string(err_));
   }
@@ -28,11 +35,18 @@ person_db::person_db(sqlite3 *db, char *err) : db_(db), err_(err) {
 
 bool person_db::save_person(iperson *person) {
   std::string query =
-          "insert into persons VALUES ('" + person->get_first_name() + "', '" + person->get_second_name() + "', '" +
-          person->get_address() +
-          "', '" + person->get_passport_id() + "', '" + std::to_string(person->get_money_limit()) + "', '" +
-          std::to_string(person->is_doubtful()) + "', '" + person->get_id().toString() +
+          "insert into persons VALUES ('" 
+          + person->get_first_name() + "', '" 
+          + person->get_second_name() + "', '" 
+          + person->get_address() + "', '" 
+          + person->get_passport_id() + "', '" 
+          + std::to_string(person->get_money_limit()) + "', '" 
+          + std::to_string(person->is_doubtful()) + "', '" 
+          + person->get_id().toString() + "', '" 
+          + person->get_login() + "', '" 
+          + person ->get_password() +
           "');";
+
   std::cout << query << std::endl;
 
   if (sqlite3_exec(db_, query.c_str(), NULL, NULL, &err_) != SQLITE_OK) {
@@ -56,6 +70,8 @@ iperson *person_db::find_person(const big_int &id) {
   std::string second_name;
   std::string address;
   std::string passport_id;
+  std::string login;
+  std::string password;
   int money_limit;
   bool is_doubtful;
 
@@ -66,9 +82,12 @@ iperson *person_db::find_person(const big_int &id) {
     passport_id = (reinterpret_cast<const char *>(sqlite3_column_text(stmt, 4)));
     money_limit = (sqlite3_column_int(stmt, 5));
     is_doubtful = (sqlite3_column_int(stmt, 6));
+    login = (reinterpret_cast<const char *>(sqlite3_column_text(stmt, 7)));
+    password = (reinterpret_cast<const char *>(sqlite3_column_text(stmt, 8)));
 
     std::cout << "Name: " << first_name << ", Surname: " << second_name << ", Address: " << address << ", Passport: "
-              << passport_id << ", Money_limit: " << money_limit << ", Is_doubtful: " << is_doubtful << std::endl;
+              << passport_id << ", Money_limit: " << money_limit << ", Is_doubtful: " << is_doubtful << ", Login: " << login << ", Password " << password << std::endl;
+  
   } else {
     throw std::string("Can`t find person");
   }
