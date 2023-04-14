@@ -15,6 +15,10 @@ public:
 
   person();
 
+  std::string get_login() const override;
+
+  std::string get_password() const override;
+
   std::string get_first_name() const override;
 
   std::string get_second_name() const override;
@@ -29,8 +33,11 @@ public:
 
   big_int get_id() const override;
 
+  void set_login(const std::string &first_name);
 
-  void set_first_name(const std::string &first_name);
+  void set_password(const std::string &login);
+
+  void set_first_name(const std::string &password);
 
   void set_second_name(const std::string &second_name);
 

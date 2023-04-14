@@ -17,6 +17,14 @@ public:
 
   virtual iperson_builder *set_passport_id(const std::string &passprot_id) = 0;
 
+  virtual iperson_builder *set_login(const std::string &login) = 0;
+
+  virtual iperson_builder *set_password(const std::string &password) = 0;
+
+  virtual void set_person_login() = 0;
+
+  virtual void set_person_password() = 0;
+
   virtual void set_person_first_name() = 0;
 
   virtual void set_person_second_name() = 0;
@@ -36,6 +44,8 @@ protected:
   std::string second_name_;
   std::string address_;
   std::string passport_id_;
+  std::string login_;
+  std::string password_;
 };
 
 

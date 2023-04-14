@@ -21,8 +21,16 @@ public:
 
   person_builder *set_passport_id(const std::string &passprot_id) override;
 
+  person_builder *set_login(const std::string &login) override;
+
+  person_builder *set_password(const std::string &password) override;
+
   bool check_args() const override;
 
+  void set_person_login() override;
+
+  void set_person_password() override;
+  
   void set_person_first_name() override;
 
   void set_person_second_name() override;

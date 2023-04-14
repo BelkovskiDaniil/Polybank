@@ -10,6 +10,11 @@ static const int money_limit = 1e4;  // if is_doubtful = false 0(no limits)
 
 class iperson {
 public:
+
+  virtual std::string get_login() const = 0;
+
+  virtual std::string get_password() const = 0;
+  
   virtual std::string get_first_name() const = 0;
 
   virtual std::string get_second_name() const = 0;
@@ -28,6 +33,10 @@ public:
 
   virtual void set_second_name(const std::string &second_name) = 0;
 
+  virtual void set_login(const std::string &login) = 0;
+
+  virtual void set_password(const std::string &password) = 0;
+
   virtual void set_address(const std::string &address) = 0;
 
   virtual void set_passport_id(const std::string &passprot_id) = 0;
@@ -37,6 +46,8 @@ public:
   virtual void update() = 0;
 
 protected:
+  std::string login_;
+  std::string password_;
   std::string first_name_;
   std::string second_name_;
   std::string address_;
